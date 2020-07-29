@@ -16,7 +16,7 @@ def contact(request):
             request.POST.get('subject') and request.POST.get('description') ):
 
             post = Contact()
-            post.user = request.POST.get('user_email')
+            post.user = request.user
             post.name = request.POST.get('senderName')
             post.subject = request.POST.get('subject')
             post.description = request.POST.get('description')
@@ -24,9 +24,9 @@ def contact(request):
 
             post.save()
 
-            return render(request, 'confirmation_reg.html')
+            return render(request, 'customer/confirmation_reg.html')
     else:
-            return render(request, 'contact.html')
+            return render(request, 'customer/contact.html')
 
 def postRegisterForm(request):
         if request.method == 'POST':

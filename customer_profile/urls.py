@@ -7,5 +7,5 @@ urlpatterns = [
     path('options/register/', views.postRegisterForm, name='register'),
     path('options/login/google/', views.login, name='login'),
     path('options/manage', views.manageBusiness, name='manage'),
-    
+    path('contact_us/', views.contact, name='contact'),  
 ]
