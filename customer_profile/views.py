@@ -68,9 +68,10 @@ def manageBusiness(request):
 
     return render(request, 'customer/manage.html', {'options': options})
 
-def BusinessAdmin(request):
+'''def BusinessAdmin(request):
     # this is effectively replaced by manage business
     user_name = request.user
     options = Business.objects.filter(Q(user=user_name), Q(name__icontains=id))
     
     return render(request, 'customer/business_manage.html', {'options': business})
+'''
