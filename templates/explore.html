@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container" style='text-align: center;'>
+    <h1>Explore Businesses</h2>
+        <hr>
+
+        <form action="{% url 'search_results' %}" method="GET">
+            {% csrf_token %}
+        <div class="form-group">
+            <label for="exploreSearch">Enter your search:</label>
+            <input type="text" class="form-control" id="exploreSearch" name="exploreSearch" placeholder="eg Hair Salon">
+        </div>
+            
+        <button type="submit" class="btn btn-primary" >Search</button>
+        <div>
+        
+        </form>
+        <hr>
+
+            {% if options == False %}
+                <h4>No results found</h4>
+        
+            {% else %}
+            <div class="grid-container">
+                {% for business in options %}
+                <div class="grid-item" style="display: grid; display: inline-grid; column-gap: 50px; row-gap: 50px;">
+                    <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+                        <div class="card-body">
+                         <h5 class="card-title">{{business.name}}</h5>
+                            <p class="card-text">{{business.type}}</p>
+                        <a href="#" class="btn btn-primary">View Business</a>
+                        </div>
+                    </div>
+    
+                </div>
+                {% endfor %}
+            </div>
+            <br>
+
+            {% endif %}
+
+        </div>
+
+          <!--
+
+</div>
+
+{% endblock %}

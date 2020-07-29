@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container" id='login_page'>
+
+<h1>This is the login page</h1>
+<hr>
+
+{% load socialaccount %}
+  <head>
+    <title>Google Registration</title>
+  </head>
+  <body>
+  
+  {% if user.is_authenticated %}
+  <h1> Google Logged in </h1>
+  <p>Welcome, {{ user.username }} !</p>
+
+        <!--Add a logout option here ??-->
+  {% else %}
+  <h3 >Login:</h3>
+  <a href="{% provider_login_url 'google' %}" class="btn btn-danger" role="button">Google Login</a>
+  {% endif %}
+
+  </body>
+
+</div>
+
+{% endblock %}
