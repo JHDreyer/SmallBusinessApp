@@ -1,4 +1,4 @@
-"""AA_Main URL Configuration
+"""Backend URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -17,14 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 
+app_name = 'block'
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('block/', include('block.urls')),
-    path('', TemplateView.as_view(template_name="main.html"), name='index'),
-    #path('login/', TemplateView.as_view(template_name="login.html"), name='login'),
-    path('explore/', include('explore.urls')),
-    path('profile/', include('customer_profile.urls')),
-    path('accounts/', include('allauth.urls')),
-    path('', include('django.contrib.auth.urls')),
-
+    path('block/', TemplateView.as_view(template_name='index.html'), name='block'),
 ]

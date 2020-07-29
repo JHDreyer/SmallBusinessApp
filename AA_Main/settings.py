@@ -37,26 +37,29 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'customer_profile.apps.CustomerProfileConfig',
-    'explore.apps.ExploreConfig', 
+    'explore.apps.ExploreConfig',
+
+    # react-django
+    'block.apps.blockConfig',
 
     # google login:
 
     'django.contrib.sites',
-    'allauth',   
-    'allauth.account',   
+    'allauth',
+    'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
 
 ]
 
 AUTHENTICATION_BACKENDS = [
-'django.contrib.auth.backends.ModelBackend',
- 'allauth.account.auth_backends.AuthenticationBackend',
- ]
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/profile/options/'
-LOGOUT_REDIRECT_URL  = '/profile/options/'
+LOGOUT_REDIRECT_URL = '/profile/options/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -70,10 +73,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'AA_Main.urls'
 
+# adding react template destination
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join( BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, "block/build")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,7 +85,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                
+
             ],
         },
     },
@@ -139,8 +143,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+# adding react staticfiles
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
+    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, 'block/build/static')
 ]
 
 # social accounts
@@ -156,4 +162,3 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
-
