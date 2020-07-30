@@ -3,26 +3,36 @@
 {% block content %}
 
 {% load static %}
-<div class="container" style='text-align: center;'>
 
+    <div id='homeDivTop'>
+      <br><br>
    <h1>Welcome to Platfrom!</h1>
-   <br>
+  </div>
+  <br>
+  <div class="container" style='text-align: center;'>
+   <div class="card">
    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam aspernatur ab, 
        sequi esse autem tenetur modi architecto voluptatum dolorem, eos repellendus, 
        nisi quaerat. Nostrum quis vitae possimus facere, enim provident.</p>
+      </div>
        <hr>
     <h4>Take your small business online:</h4>
+    <div class="card">
     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
         Explicabo quis saepe qui a ratione, nobis cupiditate! Quibusdam at eius 
         magni molestiae quos qui suscipit ea minus necessitatibus, pariatur illum quae!</p>
+      </div>
+    
         <hr>
     <h4>Steps to follow:</h4>
+    <div class="card">
     <ol style="text-align: left;">
         <li> Login using a google email</li>
         <li>Register your business</li>
         <li>Add products to your business</li>
         <li>Share the link to your <strong>free</strong> online store on social media</li>
     </ol>
+  </div>
     <hr>
     {% if user.is_authenticated %}
     <h5>You are logged in</h5>
@@ -41,6 +51,7 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
+        <h3>Marketing</h3>
         <img src="/static/images/trees_large.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h5>First slide label</h5>
