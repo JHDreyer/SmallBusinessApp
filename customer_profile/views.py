@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Contact, Business
+from .models import Contact, Business, Product
 from django.db.models import Q
 
 # Create your views here.
@@ -58,15 +58,23 @@ def manageBusiness(request):
 
     if request.method == 'POST':
         if request.POST.get('businessSelect'):
-            business = request.POST.get('businessSelect')
-            options = Business.objects.filter(Q(name__icontains=business))
+            selected_business = request.POST.get('businessSelect')
+            options = Business.objects.filter(Q(name__icontains=selected_business))
 
-            return render(request, 'customer/business_manage.html', {'options': options})
+            products = Product.objects.all()
+
+            if len(products) == 0:
+                 products = False
+
+            return render(request, 'customer/business_manage.html', {'options': options, 'products':products})
     else:
         user_name = request.user
         options = Business.objects.filter(Q(user=user_name))
 
     return render(request, 'customer/manage.html', {'options': options})
+
+def manageProducts(request):
+    return render(request, 'customer/product_form.html')
 
 '''def BusinessAdmin(request):
     # this is effectively replaced by manage business

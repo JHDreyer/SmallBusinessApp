@@ -10,8 +10,18 @@
         {% endfor %}
         <hr>
         <h4>Your products:</h4>
-      
-        <a href="#" class="btn btn-primary" role="button">Add product</a>
-      
+
+        {% if products == False %}
+                <h6>No products found</h6>
+                <br>
+        {% else %}
+
+        {% for item in products %}
+        <h3>{{products.name}}</h3>
+        {% endfor %}
+
+        {% endif %}
+        <a href="{% url 'manage_products' %}" class="btn btn-primary btn-md btn-block active" role="button" aria-pressed="true">Add product</a>
+
 </div>
 {% endblock %}
