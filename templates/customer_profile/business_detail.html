@@ -1,0 +1,12 @@
+{% extends '../base.html' %}
+{% load static %}
+
+
+{% block content%}
+
+<div class="container" id="basic_container">
+    <p>
+        <h1>{{business.name}}</h1> can be found at {{business.address}} or at {{business.address2}}
+    </p>
+</div>
+{% endblock %}
