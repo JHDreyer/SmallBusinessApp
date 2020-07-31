@@ -3,20 +3,30 @@
 {% block content %}
 <div class="container" style="text-align: center;">
     <br>
-        <form method="POST">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="businessSelect">Manage your business(es) business:</label>
-                
-                <select id="businessSelect" class="form-control" name="businessSelect">
-                    <option selected>Choose...</option>
-                    {% for business in options %}
-                    <option>{{business.name}}</option>
-                    {% endfor %}
-                </select>
-                <br>
-                <button type="submit" class="btn btn-primary" >Manage</button>
-        </form>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="businessSelect">Manage your business(es) business:</label>
+
+            <select id="businessSelect" class="form-control" name="businessSelect">
+                <option selected>Choose...</option>
+                {% for business in options %}
+                <option>{{business.name}}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <button type="submit" class="btn btn-primary">Manage</button>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+    </form>
 
 </div>
 {% endblock %}
