@@ -1,9 +1,14 @@
+#homeDivTop{
+    background-image: url('/static/images/wide_image.jpg');
+    height: 400px;
+    text-align: center;
+}
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
-
 
 
 .footer-distributed{
 	background-color: #2c292f;
+	position: absolute;
 	box-sizing: border-box;
 	width: 100%;
 	text-align: left;
@@ -13,7 +18,7 @@
 }
 #page-container {
     position: relative;
-    min-height: 100vh;
+    min-height: 100%;
   }
 #content-wrap {
     padding-bottom: 2.5rem;    /* Footer height */
@@ -43,6 +48,13 @@
 
 .footer-distributed h3 span{
 	color:  #e0ac1c;
+}
+label {
+	color: white;
+}
+.footer-distributed p, 
+.footer-distributed h1 {
+	color: white;
 }
 
 /* Footer links */
