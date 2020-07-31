@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'customer_profile.apps.CustomerProfileConfig',
     'explore.apps.ExploreConfig',
 
+    # maak forms nice
+    'crispy_forms',
+
     # user messaging
     'postman',
 
@@ -162,6 +165,7 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 POSTMAN_AUTO_MODERATE_AS = True
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # check out the link out at bottom to configure emails
 
