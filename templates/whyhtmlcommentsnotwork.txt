@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block content %}
+<div class="container" style="text-align: center;">
+    <button><a href="{% url 'postman:inbox' %}">inbox</a></button>
+    <button><a href="{% url 'postman:sent' %}">sent</a></button>
+    <button><a href="{% url 'postman:archives' %}">archives</a></button>
+    <button><a href="{% url 'postman:trash' %}">trash</a></button>
+    <button><a href="{% url 'postman:write' %}">write</a></button>
+    <button><a href="{% url 'postman:archive' %}">archive</a></button>
+    <button><a href="{% url 'postman:delete' %}">delete</a></button>
+    <button><a href="{% url 'postman:undelete' %}">undelete</a></button>
+    <button><a href="{% url 'postman:mark-read' %}">mark-raed</a></button>
+    <button><a href="{% url 'postman:mark-unread' %}">mark-unread</a></button>
+</div>
+
+{% endblock %}
