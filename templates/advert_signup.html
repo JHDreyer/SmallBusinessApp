@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container" style="padding-left:5px;">
+    
+    <h3>Sign up for a custom advertising package</h3>    
+    <br>
+    <!--
+         <h5>You are logged in with: </h5>
+    <h5 name="user_email">{{user.email}}</h5>
+    <br>
+
+    -->
+    <form method="POST">
+
+        {% csrf_token %}
+        
+        <h4>Select platforms to advetise on:</h4>
+        <input type="checkbox" id="facebook" name="facebook" value="True">
+        <label for="vehicle1">Facebook</label>
+        <input type="checkbox" id="instagram" name="instagram" value="True">
+        <label for="instagram">Instagram</label>
+        <input type="checkbox" id="google" name="google" value="True">
+        <label for="google">Google</label>
+
+        <div class="form-group">
+        <label for="budgetperiod" class="control"></label>
+        <input type="text" class="form-control" id="budgetperiod" name="budgetperiod">
+        </div>
+
+        <div class="form-group">
+            <label for="budget" class="control"></label>
+            <input type="text" class="form-control" id="budget" name="budget">
+        </div>
+
+        <div class="form-group">
+            <label for="extraInfo">What do you expect:</label>
+            <textarea class="form-control" id="extraInfo" name="extraInfo" rows="3"></textarea>
+          </div>
+        
+        <button type="submit" class="btn btn-primary">Send Request</button>
+        
+        </div>
+        
+        </form>
+
+
+
+</div>
+
+{% endblock %}
