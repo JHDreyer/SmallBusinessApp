@@ -39,8 +39,7 @@ INSTALLED_APPS = [
     'customer_profile.apps.CustomerProfileConfig',
     'explore.apps.ExploreConfig',
 
-    # react-django
-    'block.apps.blockConfig',
+   
 
     # google login:
 
@@ -77,7 +76,7 @@ ROOT_URLCONF = 'AA_Main.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, "block/build")],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -146,7 +145,6 @@ STATIC_URL = '/static/'
 # adding react staticfiles
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    os.path.join(BASE_DIR, 'block/build/static')
 ]
 
 # social accounts
