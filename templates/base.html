@@ -6,18 +6,16 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{% static '../static/css/footer.css' %}">
+    <link rel="stylesheet" href="{% static '../static/css/page.css' %}">
     <title>Platform</title>
 </head>
 
 <body>
     {% load socialaccount %}
-
     <div id="page-container">
         <div id="content-wrap">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -38,23 +36,19 @@
                             <a class="nav-link" href="{% url 'explore:explore' %}">Explore</a>
                         </li>
                         <!--{% if user.is_authenticated %} {% else %} {% endif %} <li class="nav-item">
-                      <a class="nav-link" href="">Logout</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">Login</a>
-                      </li>
-                    -->
+                          <a class="nav-link" href="">Logout</a>
+                        </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'profile' %}">Account</a>
+                            <a class="nav-link" href="{% url 'login' %}">Login</a>
+                          </li>
+                        -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'customer_profile:profile' %}">Account</a>
                         </li>
                         {% if user.is_authenticated %}
                         <li>
-                            <a class="nav-link" href="{% url 'advertising' %}">Advertising</a>
+                            <a class="nav-link" href="{% url 'customer_profile:contact' %}">Contact Us</a>
                         </li>
-                        <li>
-                            <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
-                        </li>
-                        
                         {% endif %}
                     </ul>
                     <span class="navbar-text">
@@ -66,12 +60,10 @@
             {% block content %} {% endblock %}
         </div>
 
-        <br><br>
-
         <footer class="footer-distributed">
 
             <div class="footer-left">
-                <h3>About<span>TeamTreas</span></h3>
+                <h3>About <span>TeamTreas</span></h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur officiis rem nesciunt dicta esse
                     molestias minima odio. Magni, laborum reprehenderit?</p>
 
@@ -99,11 +91,21 @@
             <div class="footer-right">
                 <div class="footer-icons">
                     <h1>Contact Us</h1>
+                    <form>
+                        {% csrf_token %}
+                        <label for></label>
+                        <label for="email">Email:</label><br>
+                        <input type="email" id='email' placeholder="Email"><br>
+                        <label for="message">Message</label><br>
+                        <textarea name="message" rows="5" cols="20">
+
+                        </textarea>
+
+                        <input type="submit">
+                    </form>
                 </div>
             </div>
         </footer>
-
-        </ id="page-container">
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -116,6 +118,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+    </div>
 </body>
 
 </html>
