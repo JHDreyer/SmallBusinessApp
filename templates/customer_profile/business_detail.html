@@ -9,29 +9,7 @@
     <h1>{{business.name}}</h1> can be found at {{business.address}} or at {{business.address2}}
     <h1>Also the owner is {{business.user.username}}</h1>
     </p>
-    <hr>
-    {% if products == False %}
-    <h6>No products found</h6>
-    <br>
-    {% else %}
-
-    {% for item in products %}
-    <h3>{{products.name}}</h3>
-    {% endfor %}
-
-    {% endif %}
-
     <br>
     <button><a href="{% url 'postman:write' recipients=business.user.username %}">Send us a message :D</a></button>
-    <br><br>
-
-    <h1>{{user.id}}=={{business.user.id}} ha you can not delete nor update nor add product fudghman</h1>
-    {% if request.user == business.user %}
-    <a class="btn btn-warning" href="{% url 'customer_profile:delete' pk=business.pk %}">Delete</a>
-    <a class="btn btn-primary" href="{% url 'customer_profile:update' pk=business.pk %}">Update</a>
-    <a href="{% url 'customer_profile:manage_products' %}" class="btn btn-primary btn-md btn-block active" role="button"
-        aria-pressed="true">Add product</a>
-    {% endif %}
 </div>
-
 {% endblock %}
