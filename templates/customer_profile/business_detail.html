@@ -1,0 +1,15 @@
+{% extends '../base.html' %}
+{% load static %}
+
+
+{% block content%}
+
+<div class="container" id="basic_container">
+    <p>
+    <h1>{{business.name}}</h1> can be found at {{business.address}} or at {{business.address2}}
+    <h1>Also the owner is {{business.user.username}}</h1>
+    </p>
+    <br>
+    <button><a href="{% url 'postman:write' recipients=business.user.username %}">Send us a message :D</a></button>
+</div>
+{% endblock %}

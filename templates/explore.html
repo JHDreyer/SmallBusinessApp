@@ -5,7 +5,7 @@
     <h1>Explore Businesses</h2>
         <hr>
 
-        <form action="{% url 'search_results' %}" method="GET">
+        <form action="{% url 'explore:search_results' %}" method="GET">
             {% csrf_token %}
         <div class="form-group">
             <label for="exploreSearch">Enter your search:</label>
@@ -29,7 +29,7 @@
                         <div class="card-body">
                          <h5 class="card-title">{{business.name}}</h5>
                             <p class="card-text">{{business.type}}</p>
-                        <a href="#" class="btn btn-primary">View Business</a>
+                        <a href="{% url 'explore:business_detail' pk=business.pk %}" class="btn btn-primary">View Business</a>
                         </div>
                     </div>
     
@@ -41,9 +41,6 @@
             {% endif %}
 
         </div>
-
-          <!--
-
 </div>
 
 {% endblock %}
