@@ -11,7 +11,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static '../static/css/page.css' %}">
-    <title>TeamTreas</title>
+    <title>TeamTrees</title>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
     <div id="page-container">
         <div id="content-wrap">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">TeamTreas</a>
+                <a class="navbar-brand" href="#">TeamTrees</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -35,6 +35,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'explore:explore' %}">Explore</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'explore:about' %}">About</a>
+                        </li>
+
                         <!--{% if user.is_authenticated %} {% else %} {% endif %} <li class="nav-item">
                           <a class="nav-link" href="">Logout</a>
                         </li>
@@ -53,7 +57,7 @@
                         {% endif %}
                     </ul>
                     <span class="navbar-text">
-                    TeamTreas
+                    TeamTrees
                     </span>
                 </div>
             </nav>
@@ -64,8 +68,8 @@
         <footer class="footer-distributed">
 
             <div class="footer-left">
-                <h3>About <span>TeamTreas</span></h3>
-                <p>Grow your business from startup to scale-up, with TeamTreas.</p>
+                <h3>About <span>TeamTrees</span></h3>
+                <p>Grow your business from startup to scale-up, with TeamTrees.</p>
 
                 <p class="footer-links">
                     <a href="#">Home</a>
