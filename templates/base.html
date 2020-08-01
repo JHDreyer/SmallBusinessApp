@@ -11,7 +11,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static '../static/css/page.css' %}">
-    <title>Platform</title>
+    <title>TeamTreas</title>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
     <div id="page-container">
         <div id="content-wrap">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">Platform</a>
+                <a class="navbar-brand" href="#">TeamTreas</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -42,30 +42,30 @@
                             <a class="nav-link" href="{% url 'login' %}">Login</a>
                           </li>
                         -->
-                        <li>
-                            <a class="nav-link" href="{% url 'advertising:advertising' %}">Advertising</a>
-                        </li>
+                      
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'businesses:profile' %}">Account</a>
                         </li>
                         {% if user.is_authenticated %}
+                        <li>
+                            <a class="nav-link" href="{% url 'advertising:advertising' %}">Advertising</a>
+                        </li>
                         {% endif %}
                     </ul>
                     <span class="navbar-text">
-                        Upgrade your business for FREE
+                    TeamTreas
                     </span>
                 </div>
             </nav>
 
             {% block content %} {% endblock %}
         </div>
-        <br>
+
         <footer class="footer-distributed">
 
             <div class="footer-left">
                 <h3>About <span>TeamTreas</span></h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur officiis rem nesciunt dicta esse
-                    molestias minima odio. Magni, laborum reprehenderit?</p>
+                <p>Grow your business from startup to scale-up, with TeamTreas.</p>
 
                 <p class="footer-links">
                     <a href="#">Home</a>
@@ -93,14 +93,14 @@
                     <h1>Contact Us</h1>
                     <form>
                         {% csrf_token %}
-                        <label for></label>
-                        <label style="color:white;" for="email">Email:</label><br>
-                        <input type="email" id='email' placeholder="Email"><br>
-                        <label style="color:white;" for="message">Message</label><br>
-                        <textarea name="message" rows="5" cols="20">
-
+                    
+                        <label for="email" style="color: white;">Email:</label><br>
+                        <input type="email" id='email'  placeholder="Email"><br>
+                        <label for="message" style="color: white;" placeholder="Your message">Message:</label><br>
+                        <textarea name="message" rows="5" cols="24">
                         </textarea>
                         <br>
+
                         <input type="submit">
                     </form>
                 </div>
