@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'customer_profile.apps.CustomerProfileConfig',
     'explore.apps.ExploreConfig',
+    'advertising.apps.AdvertisingConfig',
 
     # maak forms nice
     'crispy_forms',
