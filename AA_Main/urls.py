@@ -25,6 +25,7 @@ urlpatterns = [
     path('explore/', include('explore.urls')),
     path('profile/', include('customer_profile.urls')),
     path('accounts/', include('allauth.urls')),
+    path('advertising/', include('advertising.urls')),
 
     path('', include('django.contrib.auth.urls')),
 
