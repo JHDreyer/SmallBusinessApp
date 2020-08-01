@@ -62,7 +62,7 @@
 
             {% block content %} {% endblock %}
         </div>
-
+        <br>
         <footer class="footer-distributed">
 
             <div class="footer-left">
@@ -97,13 +97,13 @@
                     <form>
                         {% csrf_token %}
                         <label for></label>
-                        <label for="email">Email:</label><br>
+                        <label style="color:white;" for="email">Email:</label><br>
                         <input type="email" id='email' placeholder="Email"><br>
-                        <label for="message">Message</label><br>
+                        <label style="color:white;" for="message">Message</label><br>
                         <textarea name="message" rows="5" cols="20">
 
                         </textarea>
-
+                        <br>
                         <input type="submit">
                     </form>
                 </div>

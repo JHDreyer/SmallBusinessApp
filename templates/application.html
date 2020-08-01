@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="container" style="padding-left:5px;">
+<div class="container" id="applicationdiv">
     
     <h3>Sign up for a custom advertising package</h3>    
     <br>
@@ -25,17 +25,17 @@
         <label for="google">Google</label>
 
         <div class="form-group">
-        <label for="budgetperiod" class="control"></label>
+        <label for="budgetperiod" class="control">Budget Period:</label>
         <input type="text" class="form-control" id="budgetperiod" name="budgetperiod">
         </div>
 
         <div class="form-group">
-            <label for="budget" class="control"></label>
+            <label for="budget" class="control">What is your budget:</label>
             <input type="text" class="form-control" id="budget" name="budget">
         </div>
-
+             
         <div class="form-group">
-            <label for="extraInfo">What do you expect:</label>
+            <label for="extraInfo">Any extra information about your advertising</label>
             <textarea class="form-control" id="extraInfo" name="extraInfo" rows="3"></textarea>
           </div>
         
@@ -44,8 +44,6 @@
         </div>
         
         </form>
-
-
 
 </div>
 
