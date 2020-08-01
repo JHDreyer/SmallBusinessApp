@@ -51,17 +51,5 @@ class Product(models.Model):
     stock_quantity = models.IntegerField()
     image = models.ImageField(default=None)
 
-    def get_absolute_url(self):
-        return reverse('businesses:plist')
-
-
-class Service(models.Model):
-    business = models.ForeignKey(
-        'businesses.Business', related_name='service', on_delete=models.CASCADE)
-    name = models.CharField(max_length=255)
-    description = models.CharField(max_length=500)
-    price = models.FloatField(max_length=10)
-    image = models.ImageField(default=None)
-
-    def get_absolute_url(self):
-        return reverse('businesses:slist')
+    # def get_absolute_url(self):
+    # return reverse('businesses:plist')

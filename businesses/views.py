@@ -1,12 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from businesses.models import Business, Product, Service
+from businesses.models import Business, Product
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (CreateView, UpdateView, DeleteView, ListView)
 from django.urls import reverse_lazy
-from .forms import BusinessForm, ServiceForm, ProductForm
+from .forms import BusinessForm, ProductForm
 
 
 def index(request):
@@ -67,13 +67,17 @@ class BusinessCreateView(CreateView, LoginRequiredMixin):
         return super().form_valid(form)
 
 
-class BusinessListView(ListView):
-    model = Business
+def BusinessListView(request):
+    model = Business()
+    businesses = Business.objects.filter(user=request.user)
+    return render(request, 'businesses/business_list.html', {'businesses':businesses})
 
-    def get_queryset(self):
-        return Business.objects.filter(user=self.request.user)
+def ProductListView(request):
+    name = request.GET.get('viewProducts')
+    products = Product.objects.filter(business=name)
+    return render(request, 'businesses/product_list.html', {'product_list': product_list})
 
-
+   
 @login_required
 def add_product_to_business(request, pk):
 
@@ -91,35 +95,14 @@ def add_product_to_business(request, pk):
     return render(request, 'businesses/product_form.html', {'form': form})
 
 
-@login_required
-def add_service_to_business(request, pk):
-
-    business = get_object_or_404(Business, pk=pk)
-    if request.method == "POST":
-        form = ServiceForm(request.POST)
-        if form.is_valid():
-            Service = form.save(commit=False)
-            Service.business = Business
-            Service.save()
-            return redirect('explore')
-            # return redirect('explore:service_detail', pk=Business.pk)
-    else:
-        form = ServiceForm()
-    return render(request, 'businesses/service_form.html', {'form': form})
 
 
-class ServiceListView(ListView):
-    model = Service
 
-    def get_queryset(self):
-        return Service.objects.filter(user=self.request.user)
+# newwwwwwwww
 
-
-class ProductListView(ListView):
-    model = Product
-
-    def get_queryset(self):
-        return Product.objects.filter(user=self.request.user)
+"""def ProductList(request, ):
+    product_list = Product.objects.all()
+    return render(request, 'businesses/product_list.html', {'product_list': product_list})"""
 
 
 class ProductUpdateView(UpdateView, LoginRequiredMixin):
@@ -133,24 +116,7 @@ class ProductUpdateView(UpdateView, LoginRequiredMixin):
 
     model = Business
 
-
-class ServiceUpdateView(UpdateView, LoginRequiredMixin):
-    template_name = 'businesses/service_update.html'
-
-    login_url = '/login/'
-
-    redirect_field_name = 'businesses/service_detail.html'
-
-    form_class = BusinessForm
-
-    model = Business
-
-
 class ProductDeleteView(DeleteView, LoginRequiredMixin):
     model = Product
-    success_url = reverse_lazy('businesses:plist')
+    #success_url = reverse_lazy('businesses:plist')
 
-
-class ServiceDeleteView(DeleteView, LoginRequiredMixin):
-    model = Service
-    success_url = reverse_lazy('businesses:slist')

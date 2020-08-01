@@ -15,18 +15,10 @@
     <p> The owner is {{business.user.username}}</p>
     </p>
     <hr>
-    {% if products == False %}
-    <h6>No products found</h6>
-    <br>
-    {% else %}
-
-    {% for item in products %}
-    <h3>{{products.name}}</h3>
-    {% endfor %}
-
-    {% endif %}</p>
+   
   </div>
 </div>
+
     <button><a href="{% url 'postman:write' recipients=business.user.username %}">Send {{business.businessname}} a message</a></button>
     <br><br>
 
@@ -35,11 +27,13 @@
     <a class="btn btn-primary" href="{% url 'businesses:bupdate' pk=business.pk %}">Update</a>
 
     <br><br>
+    <form action="{% url 'businesses:product_list' %}" method="GET">
+      {% csrf_token %}>
+         
+      <button type="submit" class="btn btn-primary" id="viewProducts"  name="viewProducts" value={{business.businessname}}>View Products</button>
+      <div>
 
-    <a href="{% url 'businesses:pcreate' pk=business.pk %}" class="btn btn-primary btn-md btn-block active"
-        role="button" aria-pressed="true">Add product</a>
-    <a href="{% url 'businesses:screate' pk=business.pk %}" class="btn btn-primary btn-md btn-block active"
-        role="button" aria-pressed="true">Add service</a>
+  </form>
     {% endif %}
     <br>
 </div>

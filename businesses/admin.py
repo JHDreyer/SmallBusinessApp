@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Business, Product, Service
+from .models import Business, Product
 
 # Register your models here.
 
@@ -10,11 +10,7 @@ class BusinessAdmin(admin.ModelAdmin):
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('name', 'description', 'price', 'stock_quantity', 'business')
 
-class ServiceAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description', 'price', 'business')
-
 
 admin.site.register(Business, BusinessAdmin)
 admin.site.register(Product, ProductAdmin)
-admin.site.register(Service, ServiceAdmin)
 

@@ -8,7 +8,7 @@
 
     {% for product in product_list %}
     <p>
-    <h1><a href="{% url 'explore:product_detail' pk=product.business.pk %}">{{product.business.businessname}}</a></h1>
+    <h1><a href="{% url 'explore:product_detail' pk=product.business.pk %}">{{product.name}}</a></h1>
     </p>
     {% endfor %}
 </div>

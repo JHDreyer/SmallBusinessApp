@@ -13,7 +13,6 @@ urlpatterns = [
     path('about/', views.about , name='about' ),
     path('search/product/<int:pk>/',
          views.ProductDetailView.as_view(), name='product_detail'),
-    path('search/service/<int:pk>/',
-         views.ProductDetailView.as_view(), name='service_detail'),
+    
 
 ]
