@@ -8,6 +8,6 @@ app_name = 'advertising'
 urlpatterns = [
 
     path('', views.advertising, name='advertising'),
-    path('signUpForAds/', views.ad_signUp, name='signUpForAds')
+    path('signUpForAds/', views.add_application_view, name='signUpForAds')
 
 ]
