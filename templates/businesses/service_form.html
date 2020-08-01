@@ -6,9 +6,9 @@
 
 <div class="container" id="basic_container">
     <br>
-    <h3 id="register_heading">Register your business here</h3>
+    <h3 id="register_heading">Add services here</h3>
 
-    <form method="POST" action="{%url 'businesses:bupdate' pk=business.pk %}">
+    <form method="POST" action="{%url 'businesses:screate' %}">
         {% csrf_token %}
         {{form|crispy}}
         <input type="submit" class='btn btn-primary' value="submit">

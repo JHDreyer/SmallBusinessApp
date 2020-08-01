@@ -1,65 +1,15 @@
 from django.shortcuts import render
-from .models import Business, Product
+from .models import Business, Product, Service
 from django.db.models import Q
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (CreateView, UpdateView, DeleteView, ListView)
 from django.urls import reverse_lazy
-from .forms import BusinessForm
+from .forms import BusinessForm, ServiceForm, ProductForm
 
 
 def index(request):
     return render(request, 'business/profile.html')
-
-
-def login(request):
-    return render(request, 'login.html')
-
-
-def contact(request):
-    if request.method == 'POST':
-
-        if (request.POST.get('senderName') and
-                request.POST.get('subject') and request.POST.get('description')):
-
-            post = Contact()
-            post.user = request.user
-            post.name = request.POST.get('senderName')
-            post.subject = request.POST.get('subject')
-            post.description = request.POST.get('description')
-            post.user = request.user
-
-            post.save()
-
-            return render(request, 'customer/confirmation_reg.html')
-    else:
-        return render(request, 'customer/contact.html')
-
-
-# def postRegisterForm(request):
-#     if request.method == 'POST':
-#         if (request.POST.get('businessName') and request.POST.get('businessType') and
-#             request.POST.get('inputProvince') and request.POST.get('inputCity') and
-#             request.POST.get('inputAddress') and
-#                 request.POST.get('inputPostalCode')):
-
-#             post = Business()
-#             post.name = request.POST.get('businessName')
-#             post.type = request.POST.get('businessType')
-#             post.province = request.POST.get('inputProvince')
-#             post.city = request.POST.get('inputCity')
-#             post.address = request.POST.get('inputAddress')
-#             post.address2 = request.POST.get('inputAddress2')
-#             post.postal_code = request.POST.get('inputPostalCode')
-#             post.logo = request.POST.get('inputLogo')
-#             post.user = request.user
-
-#             post.save()
-
-#             return render(request, 'customer/confirmation_reg.html', {'post': post})
-
-#     else:
-#         return render(request, "customer/register.html")
 
 
 def manageBusiness(request):
@@ -68,7 +18,7 @@ def manageBusiness(request):
         if request.POST.get('businessSelect'):
             selected_business = request.POST.get('businessSelect')
             options = Business.objects.filter(
-                Q(name__icontains=selected_business))
+                Q(bussinessname__icontains=selected_business))
 
             products = Product.objects.all()
 
@@ -81,10 +31,6 @@ def manageBusiness(request):
         options = Business.objects.filter(Q(user=user_name))
 
     return render(request, 'customer/manage.html', {'options': options})
-
-
-def manageProducts(request):
-    return render(request, 'customer/product_form.html')
 
 
 class BusinessUpdateView(UpdateView, LoginRequiredMixin):
@@ -125,6 +71,38 @@ class BusinessListView(ListView):
 
     def get_queryset(self):
         return Business.objects.filter(user=self.request.user)
+
+
+class ProductCreateView(CreateView, LoginRequiredMixin):
+    login_url = '/login/'
+
+    redirect_field_name = 'businesses/product_detail.html'
+
+    form_class = ProductForm
+
+    model = Product
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.business.user = self.request.user
+        self.object.save()
+        return super().form_valid(form)
+
+
+class ServiceCreateView(CreateView, LoginRequiredMixin):
+    login_url = '/login/'
+
+    redirect_field_name = 'businesses/service_detail.html'
+
+    form_class = ServiceForm
+
+    model = Service
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.business.user = self.request.user
+        self.object.save()
+        return super().form_valid(form)
 
 
 '''def BusinessAdmin(request):

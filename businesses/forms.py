@@ -1,5 +1,5 @@
 from django import forms
-from .models import Business
+from .models import Business, Product, Service
 
 
 class BusinessForm(forms.ModelForm):
@@ -17,3 +17,15 @@ class BusinessForm(forms.ModelForm):
             "address": "eg 1234 Main St",
             "address2": "eg Apartment, studio, or floor"
         }
+
+
+class ProductForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = '__all__'
+
+
+class ServiceForm(forms.ModelForm):
+    class Meta:
+        model = Service
+        fields = '__all__'
