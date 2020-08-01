@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Q
-from businesses.models import Business
+from businesses.models import Business, Product, Service
 from django.views.generic import DetailView
 
 
@@ -26,3 +26,11 @@ def about(request):
 
 class BusinessDetailView(DetailView):
     model = Business
+
+
+class ServiceDetailView(DetailView):
+    model = Service
+
+
+class ProductDetailView(DetailView):
+    model = Product
