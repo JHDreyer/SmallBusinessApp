@@ -1,8 +1,6 @@
+from businesses.models import Business
 from faker import Faker
-from .models import Business
 import django
-
-
 django.setup()
 
 
@@ -12,14 +10,14 @@ def add_data(data1, data2):
     return d
 
 
-def populate():
+def populate(n=5):
     fake = Faker()
     print(fake.name())
 
-    # for row in data:
-    #     data1 = row[0]
-    #     data2 = row[1]
-    #     add_data(data1, data2)
+    for row in range(n):
+        data1 = row[0]
+        data2 = row[1]
+        add_data(data1, data2)
 
 
 if __name__ == "__main__":

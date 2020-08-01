@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+{% load socialaccount %}
 {% load static %}
 
   <div id='homeDivTop'>
@@ -10,7 +10,7 @@
 
   </div>
 
-  <div class="card" style="width: auto; margin-left: 0;">
+<div class="card" style="width: auto; margin-left: 0;">
   <img src="https://codersera.com/blog/wp-content/uploads/2020/03/startup-image.jpg" class="card-img-top" alt="...">
   <div class="card-body">
     <p class="card-text">Grow your business from startup to scale-up with TeamTrees.</p>
@@ -26,10 +26,14 @@
   </div>
   
 
-     <div class="card" style="width: auto;">
-  <img src="https://cdn.searchenginejournal.com/wp-content/uploads/2018/10/5-Simple-Steps-to-Creating-Exceptional-How-To-Content-1520x800.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">Follow these steps to take your business online:<ol><li> Login using a google email</li>
+  <div class="card" style="width: auto;">
+    <img
+      src="https://cdn.searchenginejournal.com/wp-content/uploads/2018/10/5-Simple-Steps-to-Creating-Exceptional-How-To-Content-1520x800.png"
+      class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-text">Follow these steps to take your business online:
+      <ol>
+        <li> Login using a google email</li>
         <li>Register your business</li>
         <li>Add products to your business</li>
         <li>Share the link to your <strong>free</strong> online store on social media</li>

@@ -13,7 +13,11 @@ def search(request):
 
     query = request.GET.get('exploreSearch')
     options = Business.objects.filter(
+<<<<<<< HEAD
         Q(businessname__icontains=query) | Q(type__icontains=query))
+=======
+        Q(bussinessname__icontains=query) | Q(type__icontains=query))
+>>>>>>> 9c244eca1b14b6bae58f2fc0003a4c1ee4fa6e3c
 
     if len(options) == 0:
         print(len(options))
