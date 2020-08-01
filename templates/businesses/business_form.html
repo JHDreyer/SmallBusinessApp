@@ -6,8 +6,8 @@
 
 <div class="container" id="basic_container">
     <br>
-    <h3 id="register_heading">Register your business here</h3>
-
+    <h3 id="register_heading">Register your business here:</h3>
+    <br>
     <form method="POST" action="{% url 'businesses:bcreate' %}">
         {% csrf_token %}
         {{form|crispy}}

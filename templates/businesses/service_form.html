@@ -3,11 +3,14 @@
 {% load crispy_forms_tags %}
 
 {% block content%}
-
-<h1>New Product</h1>
+<div class="container">
+<h1>New Service:</h1>
+<hr>
 <form method="POST" class="post-form">
     {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit" class="save btn btn-default">Business Service</button>
+    {{form|crispy}}
+    <button type="submit" class='btn btn-primary'>Create Service</button>
 </form>
+</div>
+<br>
 {% endblock %}

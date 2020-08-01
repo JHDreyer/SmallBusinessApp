@@ -84,7 +84,7 @@ def add_product_to_business(request, pk):
             product = form.save(commit=False)
             product.business = business
             product.save()
-            return redirect('explore')
+            return redirect('/business')
             # return redirect('explore:product_detail', pk=business.pk)
     else:
         form = ProductForm()

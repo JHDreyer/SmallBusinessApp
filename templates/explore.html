@@ -2,8 +2,14 @@
 
 {% block content %}
 <div class="container" style='text-align: center;'>
-    <h1>Explore Businesses </h2>
         <hr>
+
+        <div class="jumbotron jumbotron-fluid">
+  <div class=" container">
+    <h1 class="display-4">Explore Businesses</h1>
+    <p class="lead">Search for specific businesses to see their products/services, or look through the already registered businesses to explore new ones.</p>
+  </div>
+</div>
 
         <form action="{% url 'explore:search_results' %}" method="GET">
             {% csrf_token %}

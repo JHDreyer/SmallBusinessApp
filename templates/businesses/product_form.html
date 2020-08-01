@@ -4,13 +4,17 @@
 
 
 {% block content %}
-<h1>New Product</h1>
+<div class="container">
+<h1>New Product:</h1>
+<hr>
+
 <form method="POST" class="post-form">
     {% csrf_token %}
-    {{form.as_p}}
+    {{form|crispy}}
     <button type="submit" class='btn btn-primary'>Create Product</button>
 
 </form>
-
+</div>
+<br>
 
 {% endblock %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse 
 from . models import Platforms
 from .forms import PlatformForm
@@ -36,6 +36,7 @@ def add_application_view(request):
 
     if form.is_valid():
         form.save()
+        return redirect('/business')
         
 
     return render(request, 'add_form.html', {'form': form})
