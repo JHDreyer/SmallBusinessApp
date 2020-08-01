@@ -36,6 +36,7 @@ def add_application_view(request):
 
     if form.is_valid():
         form.save()
+        
 
     return render(request, 'add_form.html', {'form': form})
 
