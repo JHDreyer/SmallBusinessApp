@@ -1,1 +1,1 @@
-web: gunicorn SmallBusinessApp.wsgi
+web: gunicorn AA_Main.wsgi
