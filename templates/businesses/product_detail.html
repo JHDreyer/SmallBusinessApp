@@ -28,14 +28,16 @@
 </div>
 
     <br>
-    <button><a href="{% url 'postman:write' recipients=business.user.username %}">Send us a message :D</a></button>
+    <button><a href="{% url 'postman:write' recipients=business.user.username %}">Send {{business.businessname}} a message</a></button>
     <br><br>
 
     <h1>{{user.id}}=={{business.user.id}} ha you can not delete nor update nor add product fudghman</h1>
+    <br>
     {% if request.user == business.user %}
-    <a class="btn btn-warning" href="{% url 'businesses:pdelete' pk=product.pk %}">Detele product</a>
+    <a class="btn btn-warning" href="{% url 'businesses:pdelete' pk=product.pk %}">Delete product</a>
     <a class="btn btn-primary" href="{% url 'businesses:pupdate' pk=product.pk %}">Update product</a>
     {% endif %}
 </div>
+<br>
 
 {% endblock %}
