@@ -20,12 +20,15 @@ class BusinessForm(forms.ModelForm):
 
 
 class ProductForm(forms.ModelForm):
+
     class Meta:
+
         model = Product
-        fields = '__all__'
+
+        fields = ('description', 'price', 'stock_quantity')
 
 
 class ServiceForm(forms.ModelForm):
     class Meta:
         model = Service
-        fields = '__all__'
+        fields = ('description', 'price')

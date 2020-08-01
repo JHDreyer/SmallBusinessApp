@@ -6,7 +6,7 @@
 
 <div class="container" id="basic_container">
     <p>
-    <h1>{{business.name}}</h1> can be found at {{business.address}} or at {{business.address2}}
+    <h1>{{business.bussinessname}}</h1> can be found at {{business.address}} or at {{business.address2}}
     <h1>Also the owner is {{business.user.username}}</h1>
     </p>
     <hr>
@@ -30,10 +30,10 @@
     <a class="btn btn-warning" href="{% url 'businesses:bdelete' pk=business.pk %}">Delete</a>
     <a class="btn btn-primary" href="{% url 'businesses:bupdate' pk=business.pk %}">Update</a>
 
-    <a href="{% url 'businesses:pcreate' %}" class="btn btn-primary btn-md btn-block active" role="button"
-        aria-pressed="true">Add product</a>
-    <a href="{% url 'businesses:screate' %}" class="btn btn-primary btn-md btn-block active" role="button"
-        aria-pressed="true">Add service</a>
+    <a href="{% url 'businesses:pcreate' pk=business.pk %}" class="btn btn-primary btn-md btn-block active"
+        role="button" aria-pressed="true">Add product</a>
+    <a href="{% url 'businesses:screate' pk=business.pk %}" class="btn btn-primary btn-md btn-block active"
+        role="button" aria-pressed="true">Add service</a>
     {% endif %}
 </div>
 

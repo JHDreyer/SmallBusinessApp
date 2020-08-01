@@ -1,0 +1,35 @@
+{% extends '../base.html' %}
+{% load static %}
+
+
+{% block content%}
+
+<div class="container" id="basic_container">
+    <p>
+    <h1>{{business.bussinessname}}</h1> can be found at {{business.address}} or at {{business.address2}}
+    <h1>Also the owner is {{business.user.username}}</h1>
+    </p>
+    <hr>
+    {% if products == False %}
+    <h6>No products found</h6>
+    <br>
+    {% else %}
+
+    {% for item in products %}
+    <h3>{{products.name}}</h3>
+    {% endfor %}
+
+    {% endif %}
+
+    <br>
+    <button><a href="{% url 'postman:write' recipients=business.user.username %}">Send us a message :D</a></button>
+    <br><br>
+
+    <h1>{{user.id}}=={{business.user.id}} ha you can not delete nor update nor add product fudghman</h1>
+    {% if request.user == business.user %}
+    <a class="btn btn-warning" href="{% url 'businesses:pdelete' pk=product.pk %}">Detele product</a>
+    <a class="btn btn-primary" href="{% url 'businesses:pupdate' pk=product.pk %}">Update product</a>
+    {% endif %}
+</div>
+
+{% endblock %}

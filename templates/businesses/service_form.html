@@ -4,14 +4,10 @@
 
 {% block content%}
 
-<div class="container" id="basic_container">
-    <br>
-    <h3 id="register_heading">Add services here</h3>
-
-    <form method="POST" action="{%url 'businesses:screate' %}">
-        {% csrf_token %}
-        {{form|crispy}}
-        <input type="submit" class='btn btn-primary' value="submit">
-    </form>
-</div>
+<h1>New Product</h1>
+<form method="POST" class="post-form">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="save btn btn-default">Business Service</button>
+</form>
 {% endblock %}
