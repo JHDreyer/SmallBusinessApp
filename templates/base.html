@@ -46,12 +46,9 @@
                             <a class="nav-link" href="{% url 'advertising:advertising' %}">Advertising</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'customer_profile:profile' %}">Account</a>
+                            <a class="nav-link" href="{% url 'businesses:profile' %}">Account</a>
                         </li>
                         {% if user.is_authenticated %}
-                        <li>
-                            <a class="nav-link" href="{% url 'customer_profile:contact' %}">Contact Us</a>
-                        </li>
                         {% endif %}
                     </ul>
                     <span class="navbar-text">

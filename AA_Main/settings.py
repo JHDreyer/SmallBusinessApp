@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'customer_profile.apps.CustomerProfileConfig',
+    'businesses.apps.BusinessesConfig',
     'explore.apps.ExploreConfig',
     'advertising.apps.AdvertisingConfig',
 
@@ -61,8 +61,8 @@ AUTHENTICATION_BACKENDS = [
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 SITE_ID = 1
-LOGIN_REDIRECT_URL = '/profile/options/'
-LOGOUT_REDIRECT_URL = '/profile/options/'
+LOGIN_REDIRECT_URL = '/business/'
+LOGOUT_REDIRECT_URL = '/business/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

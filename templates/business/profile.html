@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load socialaccount %}
+
+<div class="container">
+
+
+    <h1 style="text-align: center;">Your account : {{user.email}}</h1>
+    <hr>
+
+    {% if user.is_authenticated %}
+    <a href="{% url 'businesses:create' %}" class="btn btn-primary btn-lg btn-block active" role="button"
+        aria-pressed="true">Register a business</a>
+    <a href="{% url 'businesses:list' %}" class="btn btn-secondary btn-lg btn-block active" role="button"
+        aria-pressed="true">Manage Products</a>
+
+
+    <a href="{% url 'logout' %}" class="btn btn-danger btn-lg btn-block active" role="button"
+        aria-pressed="true">Logout</a>
+
+    {% else %}
+    <a href="{% provider_login_url 'google' %}" class="btn btn-danger" role="button">Google Login</a>
+
+    {% endif %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+
+</div>
+
+{% endblock %}
