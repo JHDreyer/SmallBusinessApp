@@ -115,7 +115,7 @@ class BusinessCreateView(CreateView, LoginRequiredMixin):
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
-        self.object.author = self.request.user
+        self.object.user = self.request.user
         self.object.save()
         return super().form_valid(form)
 

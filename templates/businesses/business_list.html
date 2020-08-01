@@ -8,7 +8,7 @@
 
     {% for business in business_list %}
     <p>
-    <h1><a href="{% url 'explore:business_detail' pk=business.pk %}">{{business.name}}</a></h1>
+    <h1><a href="{% url 'explore:business_detail' pk=business.pk %}">{{business.businessname}}</a></h1>
     </p>
     {% endfor %}
 </div>
