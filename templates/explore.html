@@ -35,10 +35,9 @@
             <div class="grid-item" style="display: grid; display: inline-grid; column-gap: 50px; row-gap: 50px;">
                 <div class="card text-white bg-dark mb-3" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">{{business.bussinessname}}</h5>
-                        <p class="card-text">{{business.bussinesstype}}</p>
-                        <a href="{% url 'explore:business_detail' pk=business.pk %}" class="btn btn-primary">View
-                            Business</a>
+                        <h5 class="card-title">{{business.businessname}}</h5>
+                        <p class="card-text">{{business.businesstype}}</p>
+                        <a href="{% url 'explore:business_detail' pk=business.pk %}" class="btn btn-primary">View Business</a>
                     </div>
                 </div>
 

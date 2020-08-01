@@ -8,12 +8,11 @@ def explore(request):
     options = Business.objects.all()
     return render(request, 'explore.html', {'options': options})
 
-
 def search(request):
 
     query = request.GET.get('exploreSearch')
     options = Business.objects.filter(
-        Q(bussinessname__icontains=query) | Q(type__icontains=query))
+        Q(businessname__icontains=query) | Q(businesstype__icontains=query))
 
     if len(options) == 0:
         print(len(options))
