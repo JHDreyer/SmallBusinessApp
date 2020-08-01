@@ -11,8 +11,14 @@
             <select id="businessSelect" class="form-control" name="businessSelect">
                 <option selected>Choose...</option>
                 {% for business in options %}
+            <div class="jumbotron jumbotron-fluid">
+            <div class=" container">
+            <option>{{business.name}}</option>
+            </div>
+             
                 <option>{{business.name}}</option>
                 {% endfor %}
+                </div>
             </select>
             <br>
             <button type="submit" class="btn btn-primary">Manage</button>

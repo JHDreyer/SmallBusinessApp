@@ -1,10 +1,7 @@
 #homeDivTop{
-	color: white;
-    background-image: url('/static/images/Home.jpg');
-    height: 400px;
+	color: black;
 	text-align: center;
-	font-size: 50px;
-	background-repeat: no-repeat;
+	
 }
 
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');

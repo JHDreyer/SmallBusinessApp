@@ -5,15 +5,19 @@
 {% load static %}
 
   <div id='homeDivTop'>
-      <br><br>
-      <h1>Welcome to TeamTrees!</h1>
+      <br>
+      <div class="jumbotron jumbotron-fluid">
+  <div class=" container">
+    <h1 class="display-4">Welcome to TeamTrees!</h1>
+  </div>
+</div>
+    
 
   </div>
-
 <div class="card" style="width: auto; margin-left: 0;">
-  <img src="../static/images/startup.jpg" class="card-img-top" alt="...">
+  <img src="../static/images/home.jpg" class="card-img-top" alt="...">
   <div class="card-body">
-    <p class="card-text">Grow your business from startup to scale-up with TeamTrees.</p>
+    <h1 class="card-text">Grow your business from startup to scale-up with TeamTrees.</h1>
     <a class="btn btn-primary" href="{% url 'explore:about' %}" role="button">About</a>
   </div>
   </div>
@@ -21,7 +25,7 @@
        <div class="card" style="width: auto;">
   <img src="../static/images/online.jpg" class="card-img-top" alt="...">
   <div class="card-body">
-    <p class="card-text">Take your small business online with TeamTrees. Explore businesses already on TeamTrees</p>
+    <h1 class="card-text">Take your small business online with TeamTrees. Explore businesses already on TeamTrees</h1>
     <a class="btn btn-primary" href="/explore" role="button">Explore</a>
   </div>
   
@@ -31,13 +35,13 @@
       src="../static/images/steps.jpg"
       class="card-img-top" alt="...">
     <div class="card-body">
-      <p class="card-text">Follow these steps to take your business online:
-      <ol>
+      <p class="card-text"><h1>Follow these steps to take your business online:</h1>
+      <ol><h4>
         <li> Login using a google email</li>
         <li>Register your business</li>
         <li>Add products to your business</li>
         <li>Share the link to your <strong>free</strong> online store on social media</li>
-    </ol></p>
+    </ol></h4>
   </div>
   </div>
 

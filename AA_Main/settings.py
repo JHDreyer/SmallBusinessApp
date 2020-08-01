@@ -24,7 +24,7 @@ SECRET_KEY = '91ua5fs-+v$=ec@!+6*wrrex#d62(4vndns5rf3#u@l^zft1lr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['teamtreesafrica.herokuapp.com']
 
 
 # Application definition

@@ -6,10 +6,22 @@
 
 <div class="container" id="basic_container">
 
+
+    <div class="grid-container">
     {% for business in businesses %}
-    <p>
-    <h1><a href="{% url 'explore:business_detail' pk=business.pk %}">{{business.businessname}}</a></h1>
-    </p>
+     
+
+    <br><br>
+    <div class="grid-item" style="display: grid; display: inline-grid; column-gap: 50px; row-gap: 50px;">
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <div class="card-body">
+                <h1><a href="{% url 'explore:business_detail' pk=business.pk %}">{{business.businessname}}</a></h1>
+                <p class="card-text">{{business.businesstype}}</p>
+            </div>
+        </div>
+    </div>
+
     {% endfor %}
+    </div>
 </div>
 {% endblock %}
