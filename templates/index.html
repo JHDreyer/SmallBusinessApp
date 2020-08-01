@@ -18,7 +18,8 @@
   <img src="../static/images/home.jpg" class="card-img-top" alt="...">
   <div class="card-body">
     <h1 class="card-text">Grow your business from startup to scale-up with TeamTrees.</h1>
-    <a class="btn btn-primary" href="{% url 'explore:about' %}" role="button">About</a>
+    <a href="{% url 'explore:about' %}" class="btn btn-primary btn-lg btn-block active" role="button"
+aria-pressed="true">About</a>
   </div>
   </div>
        <hr>
@@ -26,7 +27,8 @@
   <img src="../static/images/online.jpg" class="card-img-top" alt="...">
   <div class="card-body">
     <h1 class="card-text">Take your small business online with TeamTrees. Explore businesses already on TeamTrees</h1>
-    <a class="btn btn-primary" href="/explore" role="button">Explore</a>
+    <a href="/explore" class="btn btn-primary btn-lg btn-block active" role="button"
+aria-pressed="true">Explore</a>
   </div>
   
 
@@ -48,7 +50,7 @@
   {% if user.is_authenticated %}
     <h5>You are logged in</h5>
   {% else %}
-  <a href="{% url 'businesses:profile' %}" class="btn btn-danger" role="button">Login</a>
+  <a href="{% url 'businesses:profile' %}" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">Login</a>
   {% endif %}
 
 {% endblock %}
