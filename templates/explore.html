@@ -2,45 +2,48 @@
 
 {% block content %}
 <div class="container" style='text-align: center;'>
-    <h1>Explore Businesses</h2>
+    <h1>Explore Businesses </h2>
         <hr>
 
         <form action="{% url 'explore:search_results' %}" method="GET">
             {% csrf_token %}
-        <div class="form-group">
-            <label for="exploreSearch">Enter your search:</label>
-            <input type="text" class="form-control" id="exploreSearch" name="exploreSearch" placeholder="eg Hair Salon">
-        </div>
-            
-        <button type="submit" class="btn btn-primary" >Search</button>
-        <div>
-        
+            <div class="form-group">
+                <label for="exploreSearch">Enter your search:</label>
+                <input type="text" class="form-control" id="exploreSearch" name="exploreSearch"
+                    placeholder="eg Hair Salon">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Search</button>
+            <div>
+
         </form>
         <hr>
 
-            {% if options == False %}
-                <h4>No results found</h4>
-        
-            {% else %}
-            <div class="grid-container">
-                {% for business in options %}
-                <div class="grid-item" style="display: grid; display: inline-grid; column-gap: 50px; row-gap: 50px;">
-                    <div class="card text-white bg-dark mb-3" style="width: 18rem;">
-                        <div class="card-body">
-                         <h5 class="card-title">{{business.name}}</h5>
-                            <p class="card-text">{{business.type}}</p>
-                        <a href="{% url 'explore:business_detail' pk=business.pk %}" class="btn btn-primary">View Business</a>
-                        </div>
+        {% if options == False %}
+        <h4>No results found</h4>
+
+        {% else %}
+        <div class="grid-container">
+            <!-- dit display nie die name of type nie : [ -->
+            {% for business in options %}
+            <div class="grid-item" style="display: grid; display: inline-grid; column-gap: 50px; row-gap: 50px;">
+                <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{business.bussinessname}}</h5>
+                        <p class="card-text">{{business.bussinesstype}}</p>
+                        <a href="{% url 'explore:business_detail' pk=business.pk %}" class="btn btn-primary">View
+                            Business</a>
                     </div>
-    
                 </div>
-                {% endfor %}
+
             </div>
-            <br>
-
-            {% endif %}
-
+            {% endfor %}
         </div>
+        <br>
+
+        {% endif %}
+
+</div>
 </div>
 
 {% endblock %}

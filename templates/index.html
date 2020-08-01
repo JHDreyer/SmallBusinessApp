@@ -1,52 +1,61 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+{% load socialaccount %}
 {% load static %}
 
-    <div id='homeDivTop'>
-      <br><br>
-   <h1>Welcome to TeamTreas!</h1>
-  </div>
+<div id='homeDivTop'>
+  <br><br>
+  <h1>Welcome to TeamTreas!</h1>
+</div>
 
-     <hr>
-    {% if user.is_authenticated %}
-    <h5 style="text-align: center;">You are logged in</h5>
-    {% else %}
-    <a href="{% url 'login' %}" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">Login with Google</a>
-    {% endif %}
-    </div>
-    <br>
+<hr>
+{% if user.is_authenticated %}
+<h5 style="text-align: center;">You are logged in</h5>
+{% else %}
+<a href="{% provider_login_url 'google' %}" class="btn btn-primary btn-lg btn-block active" role="button"
+  aria-pressed="true">Login with Google</a>
+{% endif %}
+</div>
+<br>
 
-  <div class="card" style="width: auto; margin-left: 0;">
+<div class="card" style="width: auto; margin-left: 0;">
   <img src="https://codersera.com/blog/wp-content/uploads/2020/03/startup-image.jpg" class="card-img-top" alt="...">
   <div class="card-body">
     <p class="card-text">Grow your business from startup to scale-up with TeamTreas.</p>
     <a class="btn btn-primary" href="/about" role="button">About</a>
   </div>
 </div>
-       <hr>
-       <div class="card" style="width: auto;">
-  <img src="https://www.thebalancesmb.com/thmb/6gflK8z4FzPq6JwDNWIGJzlA9w8=/4086x2298/smart/filters:no_upscale()/no-cost-online-business-58a6434c3df78c345bae15ae.jpg" class="card-img-top" alt="...">
+<hr>
+<div class="card" style="width: auto;">
+  <img
+    src="https://www.thebalancesmb.com/thmb/6gflK8z4FzPq6JwDNWIGJzlA9w8=/4086x2298/smart/filters:no_upscale()/no-cost-online-business-58a6434c3df78c345bae15ae.jpg"
+    class="card-img-top" alt="...">
   <div class="card-body">
     <p class="card-text">Take your small business online with TeamTreas. Explore businesses already on TeamTreas</p>
     <a class="btn btn-primary" href="/explore" role="button">Explore</a>
   </div>
 
-     <div class="card" style="width: auto;">
-  <img src="https://cdn.searchenginejournal.com/wp-content/uploads/2018/10/5-Simple-Steps-to-Creating-Exceptional-How-To-Content-1520x800.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">Follow these steps to take your business online:<ol><li> Login using a google email</li>
+  <div class="card" style="width: auto;">
+    <img
+      src="https://cdn.searchenginejournal.com/wp-content/uploads/2018/10/5-Simple-Steps-to-Creating-Exceptional-How-To-Content-1520x800.png"
+      class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-text">Follow these steps to take your business online:
+      <ol>
+        <li> Login using a google email</li>
         <li>Register your business</li>
         <li>Add products to your business</li>
         <li>Share the link to your <strong>free</strong> online store on social media</li>
-    </ol></p>
+      </ol>
+      </p>
 
-  <a href="{% url 'login' %}" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">Login with Google</a>
+      <a href="{% url 'login' %}" class="btn btn-primary btn-lg btn-block active" role="button"
+        aria-pressed="true">Login with Google</a>
+    </div>
+
   </div>
-    
-  </div>
- 
+
 
 </div>
 {% endblock %}

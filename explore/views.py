@@ -13,7 +13,7 @@ def search(request):
 
     query = request.GET.get('exploreSearch')
     options = Business.objects.filter(
-        Q(name__icontains=query) | Q(type__icontains=query))
+        Q(bussinessname__icontains=query) | Q(type__icontains=query))
 
     if len(options) == 0:
         print(len(options))
