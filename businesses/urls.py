@@ -12,16 +12,15 @@ urlpatterns = [
 
     path('business/create/', views.BusinessCreateView.as_view(), name='bcreate'),
     path('business/list/', views.BusinessListView, name='blist'),
-     path('business/list/products', views.ProductListView, name='product_list'),
+    path('business/list/products', views.ProductListView, name='product_list'),
 
     path('business/<int:pk>/update/',
          views.BusinessUpdateView.as_view(), name='bupdate'),
     path('business/<int:pk>/delete/',
          views.BusinessDeleteView.as_view(), name='bdelete'),
 
-    path('<int:pk>/product/',
-         views.add_product_to_business, name='pcreate'),
-    #path('product/list/', views.ProductListView, name='plist'),
+    path('bussiness/<int:pk>/product/',
+         views.add_product_to_business, name='add_product_to_business'),
     path('product/<int:pk>/update/',
          views.ProductUpdateView.as_view(), name='pupdate'),
     path('product/<int:pk>/delete/',

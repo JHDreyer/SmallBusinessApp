@@ -6,37 +6,23 @@
 
 <div class="container" id="basic_container">
 
-<div class="jumbotron jumbotron-fluid">
-  <div class=" container">
-    <h1 class="display-4"> {{business.businessname}} </h1>
-    <p class="lead">    <p>
-    <h1>{{business.businessname}}</h1> can be found at {{business.address}} or at {{business.address2}}
-    <h1>Also the owner is {{business.user.username}}</h1>
-    </p>
-    <hr>
-    {% if products == False %}
-    <h6>No products found</h6>
-    <br>
-    {% else %}
+  {% for products in products%}
+  <p>
+    {{products.business.user}} Created this product. The name of this product is {{products.name}}.
+    There are {{products.stock_quantity}} left of this product at {{products.price}}
+  </p>
+  {% endfor %}
 
-    {% for item in products %}
-    <h3>{{products.name}}</h3>
-    {% endfor %}
 
-    {% endif %}</p>
-  </div>
-</div>
-
-    <br>
-    <button><a href="{% url 'postman:write' recipients=business.user.username %}">Send {{business.businessname}} a message</a></button>
-    <br><br>
-
-    <h1>{{user.id}}=={{business.user.id}} ha you can not delete nor update nor add product fudghman</h1>
-    <br>
-    {% if request.user == business.user %}
-    <a class="btn btn-warning" href="{% url 'businesses:pdelete' pk=product.pk %}">Delete product</a>
-    <a class="btn btn-primary" href="{% url 'businesses:pupdate' pk=product.pk %}">Update product</a>
-    {% endif %}
+  <h1>{{request.user}}=={{request.user}} ha you can not delete nor update nor add product fudghman</h1>
+  <br>
+  {% if request.user == business.user %}
+  {% for products in products%}
+  {{product.pk}}
+  <a class="btn btn-warning" href="{% url 'businesses:pdelete' pk=1 %}">Delete</a>
+  <a class="btn btn-primary" href="{% url 'businesses:pupdate' pk=1 %}">Update</a>
+  {% endfor %}
+  {% endif %}
 </div>
 <br>
 

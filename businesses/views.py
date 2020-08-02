@@ -70,14 +70,15 @@ class BusinessCreateView(CreateView, LoginRequiredMixin):
 def BusinessListView(request):
     model = Business()
     businesses = Business.objects.filter(user=request.user)
-    return render(request, 'businesses/business_list.html', {'businesses':businesses})
+    return render(request, 'businesses/business_list.html', {'businesses': businesses})
+
 
 def ProductListView(request):
     name = request.GET.get('viewProducts')
     products = Product.objects.filter(business=name)
     return render(request, 'businesses/product_list.html', {'product_list': product_list})
 
-   
+
 @login_required
 def add_product_to_business(request, pk):
 
@@ -95,11 +96,7 @@ def add_product_to_business(request, pk):
     return render(request, 'businesses/product_form.html', {'form': form})
 
 
-
-
-
 # newwwwwwwww
-
 """def ProductList(request, ):
     product_list = Product.objects.all()
     return render(request, 'businesses/product_list.html', {'product_list': product_list})"""
@@ -112,11 +109,11 @@ class ProductUpdateView(UpdateView, LoginRequiredMixin):
 
     redirect_field_name = 'businesses/product_detail.html'
 
-    form_class = BusinessForm
+    form_class = ProductForm
 
     model = Business
+
 
 class ProductDeleteView(DeleteView, LoginRequiredMixin):
     model = Product
     #success_url = reverse_lazy('businesses:plist')
-
