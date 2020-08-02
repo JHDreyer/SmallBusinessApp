@@ -51,5 +51,5 @@ class Product(models.Model):
     stock_quantity = models.IntegerField()
     image = models.ImageField(default=None)
 
-    # def get_absolute_url(self):
-    # return reverse('businesses:plist')
+    def get_absolute_url(self):
+        return reverse('businesses:plist')

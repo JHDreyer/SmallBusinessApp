@@ -17,25 +17,24 @@
     <hr>
    
   </div>
+  <button><a href="{% url 'postman:write' recipients=business.user.username %}">Send {{business.businessname}} a
+      message</a></button>
+  <br><br>
+
+  {% if request.user == business.user %}
+  <a class="btn btn-warning" href="{% url 'businesses:bdelete' pk=business.pk %}">Delete</a>
+  <a class="btn btn-primary" href="{% url 'businesses:bupdate' pk=business.pk %}">Update</a>
+
+  <br><br>
+  <a href="{% url 'businesses:pcreate' pk=business.pk%}" class="btn btn-primary btn-lg btn-block active">Register a
+    product</a>
+  <h1>
+    Products:
+  </h1>
+  {% for product in products%}
+  <h1><a href="{% url 'explore:product_detail' pk=business.pk slug=product.name %}">{{product.name}}</a></h1>
+  {% endfor %}
+  {% endif %}
+  <br>
 </div>
-
-    <button><a href="{% url 'postman:write' recipients=business.user.username %}">Send {{business.businessname}} a message</a></button>
-    <br><br>
-
-    {% if request.user == business.user %}
-    <a class="btn btn-warning" href="{% url 'businesses:bdelete' pk=business.pk %}">Delete</a>
-    <a class="btn btn-primary" href="{% url 'businesses:bupdate' pk=business.pk %}">Update</a>
-
-    <br><br>
-    <form action="{% url 'businesses:product_list' %}" method="GET">
-      {% csrf_token %}>
-         
-      <button type="submit" class="btn btn-primary" id="viewProducts"  name="viewProducts" value={{business.businessname}}>View Products</button>
-      <div>
-
-  </form>
-    {% endif %}
-    <br>
-</div>
-
 {% endblock %}
