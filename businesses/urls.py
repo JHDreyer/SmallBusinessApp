@@ -20,9 +20,9 @@ urlpatterns = [
          views.BusinessDeleteView.as_view(), name='bdelete'),
 
     path('bussiness/<int:pk>/product/',
-         views.add_product_to_business, name='add_product_to_business'),
+         views.ProductCreateView, name='pcreate'),
     path('product/<int:pk>/update/',
-         views.ProductUpdateView.as_view(), name='pupdate'),
+         views.ProductUpdateView, name='pupdate'),
     path('product/<int:pk>/delete/',
-         views.ProductDeleteView.as_view(), name='pdelete'),
+         views.ProductDeleteView, name='pdelete'),
 ]

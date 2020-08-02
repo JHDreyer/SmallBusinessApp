@@ -4,14 +4,19 @@
 
 {% block content%}
 
-<div class="container" id="basic_container">
-    <br>
-    <h3 id="register_heading">Register your business here</h3>
-
-    <form method="POST" action="{%url 'businesses:pupdate' pk=product.business.pk %}">
+htness_4
+<div class="main">
+    <!-- Create a Form -->
+    <form method="POST">
+        <!-- Security token by Django -->
         {% csrf_token %}
-        {{form|crispy}}
-        <input type="submit" class='btn btn-primary' value="submit">
+
+        <!-- form as paragraph -->
+        {{ form|crispy }}
+
+        <input type="submit" value="Update">
     </form>
+
 </div>
+
 {% endblock %}

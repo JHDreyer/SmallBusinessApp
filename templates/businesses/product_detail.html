@@ -18,9 +18,10 @@
   <br>
   {% if request.user == business.user %}
   {% for products in products%}
-  {{product.pk}}
-  <a class="btn btn-warning" href="{% url 'businesses:pdelete' pk=1 %}">Delete</a>
-  <a class="btn btn-primary" href="{% url 'businesses:pupdate' pk=1 %}">Update</a>
+  {{products.pk}}
+
+  <a class="btn btn-primary" href="{% url 'businesses:pupdate' pk=products.pk %}">Update</a>
+  <a class="btn btn-primary" href="{% url 'businesses:pdelete' pk=products.pk %}">Delete</a>
   {% endfor %}
   {% endif %}
 </div>

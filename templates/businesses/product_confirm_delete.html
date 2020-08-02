@@ -1,0 +1,9 @@
+{% extends '../base.html' %}
+{% block content%}
+<form method="POST">
+    {% csrf_token %}
+    <p>DELETE!!!!!!: {{ business.name}}</p>
+    <input class="btn btn-danger" type="submit">
+</form>
+
+{% endblock %}

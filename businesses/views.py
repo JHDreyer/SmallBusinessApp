@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import HttpResponseRedirect, render, get_object_or_404, redirect
 from businesses.models import Business, Product
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
@@ -80,8 +80,7 @@ def ProductListView(request):
 
 
 @login_required
-def add_product_to_business(request, pk):
-
+def ProductCreateView(request, pk):
     business = get_object_or_404(Business, pk=pk)
     if request.method == "POST":
         form = ProductForm(request.POST)
@@ -102,18 +101,30 @@ def add_product_to_business(request, pk):
     return render(request, 'businesses/product_list.html', {'product_list': product_list})"""
 
 
-class ProductUpdateView(UpdateView, LoginRequiredMixin):
-    template_name = 'businesses/product_update.html'
+def ProductUpdateView(request, pk):
 
-    login_url = '/login/'
+    context = {}
+    obj = get_object_or_404(Product, pk=pk)
 
-    redirect_field_name = 'businesses/product_detail.html'
+    form = ProductForm(request.POST or None, instance=obj)
 
-    form_class = ProductForm
+    if form.is_valid():
+        form.save()
+        return render(request, 'business/profile.html')
 
-    model = Business
+    context["form"] = form
+
+    return render(request, "businesses/product_update.html", context)
 
 
-class ProductDeleteView(DeleteView, LoginRequiredMixin):
-    model = Product
-    #success_url = reverse_lazy('businesses:plist')
+def ProductDeleteView(request, pk):
+    context = {}
+
+    # fetch the object related to passed id
+    obj = get_object_or_404(Product, pk=pk)
+
+    if request.method == "POST":
+        obj.delete()
+        return render(request, 'business/profile.html')
+
+    return render(request, "businesses/product_confirm_delete.html", context)
