@@ -39,23 +39,17 @@ class Business(models.Model):
     logo = models.ImageField(default='None')
 
     def get_absolute_url(self):
-        return reverse('businesses:list')
+        return reverse('businesses:blist')
 
 
 class Product(models.Model):
     business = models.ForeignKey(
-        Business, default=None, on_delete=models.CASCADE)
+        'businesses.Business', related_name='product', on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=500)
     price = models.FloatField(max_length=10)
     stock_quantity = models.IntegerField()
     image = models.ImageField(default=None)
 
-
-class Service(models.Model):
-    business = models.ForeignKey(
-        Business, default=None, on_delete=models.CASCADE)
-    name = models.CharField(max_length=255)
-    description = models.CharField(max_length=500)
-    price = models.FloatField(max_length=10)
-    image = models.ImageField(default=None)
+    def get_absolute_url(self):
+        return reverse('businesses:plist')

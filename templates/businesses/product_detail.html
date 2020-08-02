@@ -1,0 +1,30 @@
+{% extends '../base.html' %}
+{% load static %}
+
+
+{% block content%}
+
+<div class="container" id="basic_container">
+
+  {% for products in products%}
+  <p>
+    {{products.business.user}} Created this product. The name of this product is {{products.name}}.
+    There are {{products.stock_quantity}} left of this product at {{products.price}}
+  </p>
+  {% endfor %}
+
+
+  <h1>{{request.user}}=={{request.user}} ha you can not delete nor update nor add product fudghman</h1>
+  <br>
+  {% if request.user == business.user %}
+  {% for products in products%}
+  {{products.pk}}
+
+  <a class="btn btn-primary" href="{% url 'businesses:pupdate' pk=products.pk %}">Update</a>
+  <a class="btn btn-primary" href="{% url 'businesses:pdelete' pk=products.pk %}">Delete</a>
+  {% endfor %}
+  {% endif %}
+</div>
+<br>
+
+{% endblock %}

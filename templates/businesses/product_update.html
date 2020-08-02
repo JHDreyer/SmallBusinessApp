@@ -1,0 +1,22 @@
+{% extends '../base.html %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content%}
+
+htness_4
+<div class="main">
+    <!-- Create a Form -->
+    <form method="POST">
+        <!-- Security token by Django -->
+        {% csrf_token %}
+
+        <!-- form as paragraph -->
+        {{ form|crispy }}
+
+        <input type="submit" value="Update">
+    </form>
+
+</div>
+
+{% endblock %}

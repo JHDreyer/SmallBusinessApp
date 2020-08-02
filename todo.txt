@@ -16,3 +16,10 @@ dont be reckless
 
 most companies are informal and small
 86%companies operate informely
+
+if no such table opperationl error:
+  python manage.py migrate --run-syncdb
+
+
+TO DO LIST:
+-FIX BUSINESS REGISTER FORM

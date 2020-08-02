@@ -1,7 +1,9 @@
 #homeDivTop{
-    background-image: url('/static/images/wide_image.jpg');
+	color: white;
+    background-image: url('/static/images/desktop.jpg');
     height: 400px;
-    text-align: center;
+	text-align: center;
+	font-size: 50px;
 }
 
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
@@ -154,4 +156,9 @@ label {
 		margin-left: 0;
 	}
 
+}
+.card {
+	margin: 0 auto; /* Added */
+	float: none; /* Added */
+	margin-bottom: 10px; /* Added */
 }

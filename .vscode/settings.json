@@ -1,3 +1,7 @@
 {
+<<<<<<< HEAD
     "python.pythonPath": "C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
+=======
+    "python.pythonPath": "/home/harry/anaconda3/envs/myDjangoEnv/bin/python"
+>>>>>>> 4d0d57ef5f80ba86e74cebd05d4b6ddc13ed6b9a
 }
